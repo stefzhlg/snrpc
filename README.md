@@ -58,7 +58,7 @@ config.xml
 		</rpcServices>
 	</application>	
 
-3, client invoker
+4, client invoker
 
 		SnRpcConnectionFactory factory = new SnNettyRpcConnectionFactory(
 					"localhost", 8080);
