@@ -8,7 +8,7 @@ SNRPC
  
  e.g.
  
- 1, interface and implementor
+ 1,server class; interface and implementor
 		// define an interface:
 		 public interface SnRpcInterface {
 			public String getMessage(String param);
@@ -30,6 +30,33 @@ SNRPC
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
+
+3，config file
+
+snrpcserver.properties
+=========
+	#tcpNoDelay 
+	snrpc.tcp.nodelay=true
+	#call the bind method as many times as you want
+	snrpc.tcp.reuseAddress=true
+	#ISDEBUG
+	snrpc.dev=true
+	#TCP timeout
+	snrpc.read.timeout=25000
+	#server port
+	snrpc.http.port=8080
+----------------------------------------------------------------------
+config.xml
+=========
+	<?xml version="1.0" encoding="UTF-8"?>
+	<application>
+	 <!-- rpc interface services -->	
+	 <rpcServices>
+			<rpcService name="SnRpcInterface" interface="org.stefan.snrpc.server.SnRpcInterface" overload="true">
+	           <rpcImplementor  class="org.stefan.snrpc.server.SnRpcImpl"/> 
+			</rpcService>
+		</rpcServices>
+	</application>	
 
 3, client invoker
 
