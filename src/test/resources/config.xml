@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application>
+ <!-- rpc interface services -->	
+ <rpcServices>
+		<rpcService name="SnRpcInterface" interface="org.stefan.snrpc.server.SnRpcInterface" overload="true">
+           <rpcImplementor  class="org.stefan.snrpc.server.SnRpcImpl"/> 
+		</rpcService>
+	</rpcServices>
+</application>
